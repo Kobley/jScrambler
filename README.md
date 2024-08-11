@@ -3,11 +3,10 @@
 
 ## usage
 > [!IMPORTANT]
-> TODO
+> TODO: option parser for command line usage
 
 ## showcase
-> [!IMPORTANT]
-> TODO: add gif/video of usage
+> ![beta usage](https://github.com/Kobley/jScrambler/blob/master/media/basicusage.mp4)
 
 ## this project is licensed with the GNU GPLv3 license.
 > ### below is a summary.
