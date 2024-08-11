@@ -1,18 +1,21 @@
 import re
 
-METHOD_REGEX = r"\b\w+\("
-CLASS_REGEX = r"class \w+"
+METHOD_REGEX = r"\b\w+\(" # finds text formatted like "<methodname>(", might add "<methodname> (" but it seems to work without needing the space/escape char
+CLASS_REGEX = r"class \w+" # finds text formatted like "class <classname>"
+STRING_REGEX = r"\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*'" # works for "" or ''
 
 class ClassWrapper():
     
-    content:str
+    filecontents:str
     classes:list[str]
     methods:list[str]
+    strings:list[str]
     
     def __init__(self, filecontents):
         self.filecontents = filecontents
         self.classes = []
         self.methods = []
+        self.strings = []
         self.parse()
     
     def parse(self):
@@ -26,11 +29,14 @@ class ClassWrapper():
             start_pos = match.start()
             
             preceding_text = self.filecontents[:start_pos]
-            preceding_context = preceding_text[-11:] # 11 max for len(system.out), might update.
+            preceding_context = preceding_text[-11:] # 11 max for len(system.out.), might update.
             
             if not exclude_regex.search(preceding_context):
                 if not method_call.startswith("main") and not method_call.startswith("Main"):
                     self.methods.append(method_call.removesuffix("("))
         
-        for classes in re.finditer(CLASS_REGEX, self.filecontents):
-            self.classes.append(classes.group().removeprefix("class "))
+        for potential_classes in re.finditer(CLASS_REGEX, self.filecontents):
+            self.classes.append(potential_classes.group().removeprefix("class "))
+            
+        for potential_string in re.finditer(STRING_REGEX, self.filecontents):
+            self.strings.append(potential_string.group())

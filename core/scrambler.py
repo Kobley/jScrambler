@@ -3,6 +3,7 @@ from core.util.logger import Logger
 import core.util.generator as gen
 import core.mutations.scrambling.MethodScrambler as ms
 import core.mutations.scrambling.ClassScrambler as cs
+import core.mutations.scrambling.StringScrambler as ss
 
 def run(logger:Logger):
     filein = str(input("filename: "))
@@ -12,6 +13,9 @@ def run(logger:Logger):
         contents = f.read()
         
     wrapper:ClassWrapper = ClassWrapper(contents)
+    
+    # string scrambler
+    wrapper.filecontents = ss.process(wrapper)
     
     # method scrambler
     wrapper.filecontents = ms.process(wrapper)

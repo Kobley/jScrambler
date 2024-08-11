@@ -4,8 +4,9 @@ import core.util.generator as gen
 def process(cw:ClassWrapper) -> str:
     final = cw.filecontents
     
-    for method in cw.methods:
-        newName = gen.randString(64)
-        final = final.replace(method, newName)
+    for string in cw.strings:
+        stripped = string.strip("\"").strip("\'")
+        encoded = gen.encodeString(stripped)
+        final = final.replace(string, encoded)
         
     return final
