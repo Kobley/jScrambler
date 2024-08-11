@@ -8,33 +8,33 @@
 ## showcase
 > ![usage](https://github.com/Kobley/jScrambler/blob/master/media/usage.gif)
 
-> ```java
-> public class Test {
->   public static void main(String[] args) {
->     String msg = getMessage();
->     System.out.println(msg);
->   }
-> 
->   public static String getMessage() {
->     return "Hello World!";
->   }
-> }
-> ```
+```java
+public class Test {
+  public static void main(String[] args) {
+    String msg = getMessage();
+    System.out.println(msg);
+  }
+
+  public static String getMessage() {
+    return "Hello World!";
+  }
+}
+```
 
 ## Becomes
 
-> ```java
-> public class hTdBJUPaORIOVBGZNgTsfAxgRRcZKXWD {
->   public static void main(String[] args) {
->     String msg = cfLjVgtFvwvirnBbFBKVShQygtaVvBxdFckHxuVkTHRJfgwBlEytfpwyCKuDcKQC();
->     System.out.println(msg);
->   }
-> 
->   public static String cfLjVgtFvwvirnBbFBKVShQygtaVvBxdFckHxuVkTHRJfgwBlEytfpwyCKuDcKQC() {
->     return new StringBuilder("!dlroW olleH").reverse().toString();
->   }
-> }
-> ```
+```java
+public class hTdBJUPaORIOVBGZNgTsfAxgRRcZKXWD {
+  public static void main(String[] args) {
+    String msg = cfLjVgtFvwvirnBbFBKVShQygtaVvBxdFckHxuVkTHRJfgwBlEytfpwyCKuDcKQC();
+    System.out.println(msg);
+  }
+
+  public static String cfLjVgtFvwvirnBbFBKVShQygtaVvBxdFckHxuVkTHRJfgwBlEytfpwyCKuDcKQC() {
+    return new StringBuilder("!dlroW olleH").reverse().toString();
+  }
+}
+```
 
 ## this project is licensed with the GNU GPLv3 license.
 > ### below is a summary.
