@@ -6,7 +6,8 @@ def process(cw:ClassWrapper) -> str:
     
     for string in cw.strings:
         stripped = string.strip("\"").strip("\'")
-        encoded = gen.encodeString(stripped)
+        encrypted = gen.encrypt_string(stripped)
+        encoded = gen.double_reverse_string(encrypted)
         final = final.replace(string, encoded)
         
     return final

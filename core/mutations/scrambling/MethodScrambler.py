@@ -5,7 +5,7 @@ def process(cw:ClassWrapper) -> str:
     final = cw.filecontents
     
     for method in cw.methods:
-        newName = gen.randString(64)
+        newName = gen.randString(8)
         final = final.replace(method, newName)
         
     return final

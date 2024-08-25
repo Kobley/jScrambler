@@ -1,6 +1,7 @@
 from sys import version_info
 import core.util.control as cf
 from core.util.logger import Logger
+import core.util.generator as gen
 import core.scrambler as main
 
 logger = Logger(
@@ -12,7 +13,7 @@ logger = Logger(
 def entry():
     if version_info[0] != 3:
         logger.error("Unsupported python version! Please use Python 3 or greater.")
-        cf.exit(logger, 1)
+        cf.cleanExit(logger, 1)
     
     main.run(logger)
 
